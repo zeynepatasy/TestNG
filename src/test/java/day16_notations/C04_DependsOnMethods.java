@@ -37,7 +37,7 @@ public class C04_DependsOnMethods  {
 
   }
     //bu classta bütün testler bağımsız 1. çalısmazsa diğerleri çalışmaya devam eder.
-    //dependsOnMethod testlerin çalışma sıralamasına karışmaz.Priority önce siz belirlemelisiniz test durumuna görr
+    //dependsOnMethod testlerin çalışma sıralamasına karışmaz.Priority önce siz belirlemelisiniz, yoksa isme göre çalışır
     //dependsOnMethod testleri birbirine bağlar birisi çalışmazsa diğerleri hiç çalıştırmaz
     //Bağlı oldugu testin sonucuna bakar, bağlandıgı test pass olmazsa bağlanan test hiç çalışmaz.İgnor olur.
 
@@ -46,7 +46,7 @@ public class C04_DependsOnMethods  {
     public void test01(){
         driver.get("https://www.ramazon1.com");
     }
-    @Test(dependsOnMethods = "test01")
+    @Test(dependsOnMethods = "test01" ,priority = 0)
     public void test02(){
         WebElement aramaKutusu= driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella" + Keys.ENTER);

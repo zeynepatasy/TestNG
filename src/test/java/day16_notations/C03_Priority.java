@@ -11,7 +11,7 @@ public class C03_Priority extends TestBase {
 
          Priority küçükten büyüğe göre çalışır
          eğer bir test methoduna priority atanmadıysa default =0 olarak kabul edilir
-
+         Sıralamayı priority yoksa isim sıralaması belirliyor
           */
     @Test(priority = -5) //en küçük
     public void test01(){
