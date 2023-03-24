@@ -34,15 +34,13 @@ public class C07_SoftAssert extends TestBase {
         //softAssert kullanarak DropDown listesinin su secenekleri oldugunu test edin
         List<WebElement>optionList=select.getOptions();
         List<String>optionListText=new ArrayList<>();
+        String[]arr={"All Departments", "Arts & Crafts", "Automotive", "Baby", "Beauty & Personal Care","Books", "Boys' Fashion", "Computers", "Deals","Digital Music", "Electronics", "Girls' Fashion", "Health & Household", "Home & Kitchen", "Industrial & Scientific", "Kindle Store", "Luggage", "Men's Fashion", "Movies & TV", "Music, CDs & Vinyl", "Pet Supplies","Prime Video", "Software", "Sports & Outdoors", "Tools & Home Improvement", "Toys & Games", "Video Games", "Women's Fashion"};
+
         List<String>expectedList=new ArrayList<>();
-        expectedList.add("All Departments");  expectedList.add("Arts & Crafts"); expectedList.add("Automotive"); expectedList.add("Baby");
-        expectedList.add("Beauty & Personal Care"); expectedList.add("Books");  expectedList.add("Boys' Fashion"); expectedList.add("Computers");
-        expectedList.add("Deals");expectedList.add("Digital Music");  expectedList.add("Electronics");expectedList.add("Girls' Fashion");
-        expectedList.add("Health & Household");  expectedList.add("Home & Kitchen"); expectedList.add("Industrial & Scientific");expectedList.add("Kindle Store");
-        expectedList.add("Luggage"); expectedList.add("Men's Fashion"); expectedList.add("Movies & TV"); expectedList.add("Music, CDs & Vinyl");
-        expectedList.add("Pet Supplies");expectedList.add("Prime Video");expectedList.add("Software");  expectedList.add("Sports & Outdoors");
-        expectedList.add("Tools & Home Improvement");  expectedList.add("Toys & Games");  expectedList.add("Video Games");
-        expectedList.add("Video Games");  expectedList.add("Women's Fashion");
+        for (int i = 0; i <arr.length ; i++) {
+            expectedList.add(arr[i]);
+        }
+
         for (WebElement each:optionList
              ) {
             System.out.println(each.getText());
