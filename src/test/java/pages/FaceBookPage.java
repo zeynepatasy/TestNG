@@ -8,6 +8,7 @@ import utilities.Driver;
 
 public class FaceBookPage {
 public  FaceBookPage(){
+
     PageFactory.initElements(Driver.getDriver(),this);
 }
     @FindBy(id ="email" )
