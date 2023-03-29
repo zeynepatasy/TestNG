@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<!--Bir xml dosyası ile istediğimiz testleri, package'leri class'ları
+çalıstırabilirz. Bunun için yapmmamız gereken; suite'den baslayıp
+tüm test hiyerarsisine uygun olarak çalısacak tüm testleri xml formatında yazmamızdır.
+
+İstediğimiz tüm testlere ulasmak için birden fazla hiyerasi olusturmamız gerekirse,
+sonraki hiyerasileri uygun adımdan baslatmamız gerekir.
+ -->
+<suite name="istenen class'lari calistirma">
+    <test name="classlar">
+        <classes>
+            <class name="tests.day16.C03_Priority"></class>
+            <class name="tests.day17_pom.C01_DriverİlkClass"></class>
+        </classes>
+    </test>
+</suite>
