@@ -44,7 +44,8 @@ public class C04_DependsOnMethods  {
 
     @Test
     public void test01(){
-        driver.get("https://www.ramazon1.com");
+
+      driver.get("https://www.amazon.com");
     }
     @Test(dependsOnMethods = "test01" ,priority = 0)
     public void test02(){
@@ -59,7 +60,7 @@ public class C04_DependsOnMethods  {
         Assert.assertTrue(sonucYazıElementi.getText().contains("Nutella"));
         //Test ignored.
     }
-    @Test
+    @Test(groups = {"grup1","grup2"}) //bu test hem grup 1'e hem grup 2'ye dahil
     public void test04(){
         System.out.println("Bak bu çalıştı");
 
