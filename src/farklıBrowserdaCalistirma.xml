@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="farklı browser" parallel="classes" thread-count="2">
+    <test name="farklı browser">
+        <classes>
+            <class name="tests.day21_reusableMethods_htmlReports.FarklıBrowserdaÇalıstırma"></class>
+        </classes>
+    </test>
+</suite>

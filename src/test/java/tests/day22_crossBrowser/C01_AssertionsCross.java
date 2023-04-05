@@ -1,23 +1,24 @@
-package tests.day16;
+package tests.day22_crossBrowser;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.TestBase;
+import utilities.CrossDriver;
+import utilities.TestBaseCross;
 
-public class C05_Assetions extends TestBase {
+public class C01_AssertionsCross extends TestBaseCross {
     @Test
     public void test01(){
         //amazon' a gidin
-       driver.get("https://www.amazon.com");
+        driver.get("https://www.amazon.com");
         //title'ın amazon içerdiğini test edin
-       String baslıkElementi= driver.getTitle();
+        String baslıkElementi= driver.getTitle();
         Assert.assertTrue(baslıkElementi.contains("Amazon"));
         //arama kutusunun erişilebilir oldugunu test edin
-     WebElement aramaKutusu= driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
-     Assert.assertTrue(aramaKutusu.isEnabled());
+        WebElement aramaKutusu= driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+        Assert.assertTrue(aramaKutusu.isEnabled());
         //Arama kutusuna Nutella yazıp aratın
         aramaKutusu.sendKeys("Nutella" + Keys.ENTER);
         //Arama yapıldıgını test edin
@@ -25,6 +26,6 @@ public class C05_Assetions extends TestBase {
         Assert.assertTrue(sonucYazıElementi.isDisplayed());
         //Arama sonucunun Nutella içerdiğini test edin
         Assert.assertTrue(sonucYazıElementi.getText().contains("Nutella"));
-    }
 
+    }
 }

@@ -8,10 +8,11 @@ import utilities.Driver;
 import utilities.TestBaseRapor;
 
 public class C03_PositiveLoginTestiRaporlu extends TestBaseRapor {
-    BlueRentalCars brcPages = new BlueRentalCars();
+    BlueRentalCars brcPages;
 
     @Test
     public void test01() {
+        brcPages = new BlueRentalCars();
         extentTest=extentReports.createTest("pozitif Login","geçerli username ve sifre ile giriş yapabilmeli");
         //burda değer atadık extentTeste
 
@@ -35,6 +36,7 @@ public class C03_PositiveLoginTestiRaporlu extends TestBaseRapor {
         String expectedUsername = ConfigReader.getProperty("brcValidUsername");
         Assert.assertEquals(actualUsername, expectedUsername);
         extentTest.pass("kullanıcı basarılı sekilde giriş yaptı");
+
         Driver.closeDriver();
     }
 }

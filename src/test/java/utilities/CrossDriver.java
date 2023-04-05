@@ -9,21 +9,20 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
-public class Driver {
-    /*
-    POM da driver için, testBase classına extend etmek yerine
-    Driver class'ında static methodlar kullanarak
-    driver olusturup , ilgili ayarların yapılması
-    ve en sonda driver'ın kapatılması tercih edilmiştir
-     */
+public class CrossDriver {
+    private CrossDriver(){
+
+    }
     static WebDriver driver;
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(String browser) { //driver'ı artık browser olarak gönderecez bu class için
 
 
+        browser=browser == null ?ConfigReader.getProperty("browser") : browser;
 
         if (driver == null) {
-            switch (ConfigReader.getProperty("browser")){
+
+            switch (browser){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -34,8 +33,8 @@ public class Driver {
                     break;
                 case "headless-chrome":
                     WebDriverManager.chromedriver().setup();
-                        driver=new ChromeDriver(new ChromeOptions().setHeadless(true));
-                        break;
+                    driver=new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driver=new FirefoxDriver();
@@ -47,8 +46,7 @@ public class Driver {
             }
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
 
         }
         return driver;
